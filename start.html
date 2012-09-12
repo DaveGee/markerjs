@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> </title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+        <script src="http://ajax.cdnjs.com/ajax/libs/json2/20110223/json2.js"></script>
+        <script>
+        
+            $("document").ready(function() {
+                $(".send").click(function() {
+                    $.ajax({
+                        type: "GET",
+                        url: "say?user=dge&what=" + $("#inputtext").val() + "&id=0",
+                        dataType: "json",
+                        cache: false,
+                        contentType: "application/json; charset=utf-8",
+                        headers: { "Cookie": "__utma=200306492.60552792.1333121850.1333121850.1333462376.2; __utmb=200306492.500.10.1333462376; __utmc=200306492; __utmz=200306492.1333121850.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); BCSI-CS-5e74e372530cf5a2=2; c9.live.sid=G5bJn138dGmcoQIQVHag4bge.rNqTgP1Wrdoni0C5C6ehjg; username=daveed" },
+                        success: function(msg) {
+                            var response = JSON.parse(msg);
+                            
+                            var d = $(".chat");
+                            for(line in response.messages) {
+                                d.html(d.html() + "<br /><strong>" + line.user + "</strong>" + line.what);
+                            }
+                        },
+                        error: function(err) {
+                            alert("error: " + err.msg);
+                        }
+                    });
+                });
+            });
+        
+        </script>
+        
+        <style>
+            .chat { width: 400px; height: 400px; overflow-y: auto; border: 1px dotted #333; }
+        </style>
+    </head>
+    <body>
+    
+        <div class="chat">
+        
+        </div>
+        
+        <input type="text" id="inputtext" />
+        <a href="javacript:void(0);" class="send">Send</a>
+
+    </body>
+</html>
