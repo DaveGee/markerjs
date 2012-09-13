@@ -1,6 +1,15 @@
 var staticWeb = require("./simpleStaticWeb.js");
+var marker = require("./marker.js");
 
-var messages = [];
+function listMarks(response, query) {
+
+	response.writeHead(200, {"Content-type": "text/json" });
+//	response.write("Hello World");
+	response.write(JSON.stringify(
+		marker.controller.searchMarks()));
+
+	response.end();
+}
 
 function say(response, query) {
     
@@ -35,7 +44,5 @@ function error(response, nb, msg) {
     staticWeb.error(nb, msg, response);
 }
 
-exports.say = say;
-exports.poll = poll;
+exports.listMarks = listMarks;
 exports.error = error;
-exports.start = start;

@@ -9,9 +9,7 @@ var requestHandlers = require("./requestHandlers");
 
 var handle = {
     "/": requestHandlers.start,
-    "/start": requestHandlers.start,
-    "/say": requestHandlers.say,
-    "/poll": requestHandlers.poll,
+    "/mark": requestHandlers.listMarks,
     error: requestHandlers.error
 };
 
