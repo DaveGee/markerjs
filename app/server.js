@@ -6,7 +6,7 @@ function start(route, handle) {
     function onRequest(request, response) {
         var pathname = url.parse(request.url).pathname;
         var query = querystring.parse(url.parse(request.url).query);
-        
+
         route(handle, pathname, response, query);
     }
     

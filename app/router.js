@@ -1,10 +1,10 @@
 
 function route(handle, pathname, response, query) {
     
-    if(typeof handle[pathname] === "function") {
-        handle[pathname](response, query);
+    if(typeof handle.routes()[pathname] === "function") {
+        handle.routes()[pathname](response, query);
     } else {
-        handle.error(response, 404, "Handler not found for path: " + pathname);
+        handle.routes()["404"](response, { path: pathname, error: "Handler not found", query: query});
     }
 }
 
