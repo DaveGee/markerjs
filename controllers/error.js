@@ -1,15 +1,16 @@
 
-var controller = function() {
+var error = function() {
 	this.staticFile = require("../lib/simpleStaticWeb.js");
-}
+    this.test = "test";
+};
 
-controller.prototype.notFound = function(httpResponse, parameters) {
-	this.staticFile = require("../lib/simpleStaticWeb.js");
-	this.staticFile.error(parameters.error, "Not found", httpResponse);
-}
+error.prototype.notFound = function(httpResponse, parameters) {
+    console.log("..." + this.test);
+	//this.staticFile.error(parameters.error, "Not found", httpResponse);
+};
 
-controller.prototype.serverError = function(httpResponse, parameters) {
+error.prototype.serverError = function(httpResponse, parameters) {
 	this.staticFile.error(parameters.error, "Server error", httpResponse);
-}
+};
 
-exports.controller = new controller();
+exports.controller = new error();

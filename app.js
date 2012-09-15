@@ -1,5 +1,5 @@
 var server = require("./app/server");
 var router = require("./app/router");
-var handles = require("./config/routes");
+var requestHandle = require("./config/routes.js");
 
-server.start(router.route, handles);
+server.start(router.route, requestHandle.handles);

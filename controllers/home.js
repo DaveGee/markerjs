@@ -1,11 +1,11 @@
 
-var controller = function() {
+var home = function() {
 	
-}
+};
 
-controller.prototype.index = function(httpResponse, urlQuery) {
+home.prototype.index = function(httpResponse, urlQuery) {
 	// do stuff
 	console.log(urlQuery);
-}
+};
 
-exports.controller = new controller();
+exports.controller = new home();

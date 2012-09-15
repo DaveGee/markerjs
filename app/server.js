@@ -1,6 +1,7 @@
 var http = require("http");
 var url = require("url");
 var querystring = require("querystring");
+var conf = require("../config/conf.js");
 
 function start(route, handle) {
     function onRequest(request, response) {
@@ -10,8 +11,8 @@ function start(route, handle) {
         route(handle, pathname, response, query);
     }
     
-    http.createServer(onRequest).listen(32001);
-    console.log("Server started on port " + 32001);
+    http.createServer(onRequest).listen(conf.web.port);
+    console.log("Server started on port " + conf.web.port);
 }
 
 exports.start = start;
