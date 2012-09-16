@@ -5,5 +5,7 @@ exports.web = {
 };
 
 exports.app = {
-    name:   "MarkerJs"
+    name:   "MarkerJs",
+    env:    "development",
+    debug:  true
 };

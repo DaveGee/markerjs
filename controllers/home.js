@@ -1,11 +1,13 @@
 
-var home = function() {
-	
+var HomeController = function() {
+    this.stuff = "My name is HomeController";
 };
 
-home.prototype.index = function(httpResponse, urlQuery) {
+HomeController.prototype.index = function(httpResponse, urlQuery) {
 	// do stuff
-	console.log(urlQuery);
+	httpResponse.writeHead(200, { "Content-Type": "text/html" });
+    httpResponse.write("<h1>Hello World</h1> this is the controller's internal stuff: " + this.stuff);
+    httpResponse.end();
 };
 
-exports.controller = new home();
+module.exports = new HomeController();

@@ -3,10 +3,10 @@ var marker = require("../controllers/marker.js");
 var error = require("../controllers/error.js");
 
 exports.handles = {
-	"/":            home.controller.index,
-    "/mark":        marker.controller.searchMarks,
-	"/mark/add":    marker.controller.addMark,
+	"/":            [home, "index"],
+    "/mark":        [marker, "searchMarks"],
+	"/mark/add":    [marker, "addMark"],
 	
-    "404":          error.controller.notFound,
-	"500":          error.controller.serverError
+    "404":          [error, "notFound"],
+	"500":          [error, "serverError"]
 };
