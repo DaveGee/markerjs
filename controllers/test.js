@@ -6,14 +6,19 @@ var TestController = function() {
 
 TestController.prototype.test = function(httpResponse, queryStr) {
     console.log("testing...");
-    
+ 
     require("../lib/utils").twohundred(httpResponse, "<h1>Hello World<h1>");
 }
 
 TestController.prototype.testJson = function(httpResponse, queryStr) {
     console.log("testing json...");
-    
-    require("../lib/utils").twohundredJson(httpResponse, {"Greetings": "Hello World", "MyName": "David"});
+   
+    var envTest = {
+    	"VCAP_SERVICES": process.env.VCAP_SERVICES,
+	"MJS_NAME": process.env.MJS_NAME
+    };
+ 
+    require("../lib/utils").twohundredJson(httpResponse, process.env);
 }
 
 TestController.prototype.testView = function(httpResponse, queryStr) {

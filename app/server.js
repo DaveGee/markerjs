@@ -8,6 +8,8 @@ function start(route, handle) {
         var pathname = url.parse(request.url).pathname;
         var query = querystring.parse(url.parse(request.url).query);
 
+	if(conf.app.debug) require("../lib/trace").recordVisit(request);
+
         route(handle, pathname, response, query);
     }
     
