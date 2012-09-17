@@ -11,6 +11,7 @@ exports.handles = {
     "/test/json":   [test, "testJson"],
     "/test/view":   [test, "testView"],
     "/test/viewj":  [test, "testViewJson"],
+    "/test/stats":	    [test, "stats"],
 	
     "404":          [error, "notFound"],
 	"500":          [error, "serverError"]
