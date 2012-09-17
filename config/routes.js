@@ -1,11 +1,14 @@
-var home = require("../controllers/home.js");
-var marker = require("../controllers/marker.js");
-var error = require("../controllers/error.js");
+var home = require("../controllers/home.js").controller;
+var marker = require("../controllers/marker.js").controller;
+var error = require("../controllers/error.js").controller;
+var test = require("../controllers/test.js").controller;
 
 exports.handles = {
 	"/":            [home, "index"],
     "/mark":        [marker, "searchMarks"],
 	"/mark/add":    [marker, "addMark"],
+    "/test":        [test, "test"],
+    "/test/json":   [test, "testJson"],
 	
     "404":          [error, "notFound"],
 	"500":          [error, "serverError"]

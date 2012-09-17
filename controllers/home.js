@@ -10,4 +10,4 @@ HomeController.prototype.index = function(httpResponse, urlQuery) {
     httpResponse.end();
 };
 
-module.exports = new HomeController();
+module.exports.controller = new HomeController();

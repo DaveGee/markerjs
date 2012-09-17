@@ -1,6 +1,6 @@
 
 var ErrorController = function() {
-	this.staticFile = require("../lib/simpleStaticWeb.js");
+	this.staticFile = require("../lib/utils");
 };
 
 ErrorController.prototype.notFound = function(httpResponse, parameters) {
@@ -12,4 +12,4 @@ ErrorController.prototype.serverError = function(httpResponse, parameters) {
 };
     
 
-module.exports = new ErrorController();
+module.exports.controller = new ErrorController();

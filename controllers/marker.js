@@ -16,4 +16,4 @@ MarkerController.prototype.addMark = function(httpResponse, urlQuery) {
 	// push new bookmark
 };
 
-module.exports = new marker();
+module.exports.controller = new MarkerController();
