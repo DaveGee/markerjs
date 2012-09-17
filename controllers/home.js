@@ -1,6 +1,8 @@
 
 var HomeController = function() {
     this.stuff = "My name is HomeController";
+    
+    this.controllerName = "home";
 };
 
 HomeController.prototype.index = function(httpResponse, urlQuery) {

@@ -1,6 +1,8 @@
 
 var ErrorController = function() {
 	this.staticFile = require("../lib/utils");
+    
+    this.controllerName = "error";
 };
 
 ErrorController.prototype.notFound = function(httpResponse, parameters) {
