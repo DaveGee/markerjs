@@ -7,7 +7,8 @@ exports.web = {
 exports.app = {
     name:   process.env.APP || "MarkerJs",
     env:    process.env.APP_ENV || "development",
-    debug:  process.env.DEBUG || true
+    debug:  process.env.DEBUG || true,
+    tmpDir: "./tmp/"
 };
 
 exports.db = {

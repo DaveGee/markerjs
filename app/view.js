@@ -1,5 +1,4 @@
 var fs = require("fs");
-var path = require("path");
 
 var ViewEngineConf =  {
     tags: {
@@ -17,7 +16,7 @@ ViewEngine.prototype.doLayout = function(httpResponse, tagCallbacks) {
     
     var filename = this.defaultLayout;
     
-    path.exists(this.defaultLayout, function(exists) {
+    require("path").exists(this.defaultLayout, function(exists) {
       
         if(exists) {
             // render with layout
@@ -60,7 +59,7 @@ ViewEngine.prototype.renderJson = function(ctrl, actionName, data, httpResponse)
 
     var filepath = this.viewPath + ctrl.controllerName + "/" + actionName + ".html";
     
-    path.exists(filepath, function(exists) {
+    require("path").exists(filepath, function(exists) {
       
         if(exists) {
             // render with layout
