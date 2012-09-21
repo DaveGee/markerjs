@@ -36,11 +36,13 @@ TestController.prototype.testViewJson = function(httpResponse, queryStr) {
 TestController.prototype.stats = function(httpResponse, queryStr) {
 	console.log("testing db...");
 
-	var visits = require("../lib/webRecord").visits();
+//	this.viewEngine.renderJson(this, "stats", require("../config/conf").db, httpResponse); return;
 
-	visits = visits ? visits : {};
+	var visits = require("../lib/webRecord").visits(httpResponse);
 
-	require("../lib/utils").twohundredJson(httpResponse, visits);
+//	visits = visits ? visits : {};
+
+//	require("../lib/utils").twohundredJson(httpResponse, visits);
 }
 
 

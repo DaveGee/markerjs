@@ -1,22 +1,5 @@
 // http://docs.appfog.com/services/mongodb
 
-    if(process.env.VCAP_SERVICES) {
-        var env = JSON.parse(process.env.VCAP_SERVICES);
-	var mongo = env["mongodb-1.8"][0]["credentials"];
-    }
-    else {
-	var mongo = {
-		"hostname": "localhost",
-		"port": 27017,
-		"username": "",
-		"password": "",
-		"name": "",
-		"db": "db",
-		"url": "",
-	};
-
-//	mongo["url"] = generateMongoUrl(mongo);
-    }
 
 var generateMongoUrl = function(obj) {
 
@@ -31,5 +14,24 @@ var generateMongoUrl = function(obj) {
 		return "mongodb://" + obj.hostname + ":" + obj.port + "/" + obj.db;
 	}
 }
+
+    if(process.env.VCAP_SERVICES) {
+        var env = JSON.parse(process.env.VCAP_SERVICES);
+	var mongo = env["mongodb-1.8"][0]["credentials"];
+    }
+    else {
+	var mongo = {
+		"hostname": "localhost",
+		"port": 38000,//27017,
+		"username": "",
+		"password": "",
+		"name": "",
+		"db": "db",
+		"url": "",
+	};
+
+	mongo["url"] = generateMongoUrl(mongo);
+    }
+
 
 exports.dbConfig = mongo;
