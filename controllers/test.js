@@ -5,13 +5,13 @@ var TestController = function() {
 }
 
 TestController.prototype.test = function(httpResponse, queryStr) {
-    console.log("testing...");
+    console.log("testings utils 200...");
  
     require("../lib/utils").twohundred(httpResponse, "<h1>Hello World<h1>");
 }
 
 TestController.prototype.testJson = function(httpResponse, queryStr) {
-    console.log("testing json...");
+    console.log("testing utils 200 json...");
    
     var envTest = {
     	"VCAP_SERVICES": process.env.VCAP_SERVICES,
@@ -22,13 +22,13 @@ TestController.prototype.testJson = function(httpResponse, queryStr) {
 }
 
 TestController.prototype.testView = function(httpResponse, queryStr) {
-    console.log("testing view engine...");
+    console.log("testing view engine render...");
     
     this.viewEngine.render(this, "viewengine", {"Name": "Dumb data", "Data": [1, 3, 4, 5, 6, 7, 8, 9, 0]}, httpResponse);
 }
 
 TestController.prototype.testViewJson = function(httpResponse, queryStr) {
-    console.log("testing view engine in Json...");
+    console.log("testing view engine render in Json...");
     
     this.viewEngine.renderJson(this, "viewengine", {"Name": "Dumb data", "Data": [1, 3, 4, 5, 6, 7, 8, 9, 0]}, httpResponse);
 }
@@ -42,5 +42,6 @@ TestController.prototype.stats = function(httpResponse, queryStr) {
 
 	require("../lib/utils").twohundredJson(httpResponse, visits);
 }
+
 
 exports.controller = new TestController();
