@@ -1,7 +1,7 @@
 
 exports.web = {
     port:   10000,//process.env.PORT,
-    ip:     process.env.IP
+    ip:     process.env.IP || "localhost"
 };
 
 exports.app = {

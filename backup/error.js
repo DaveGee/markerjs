@@ -6,11 +6,11 @@ var ErrorController = function() {
 };
 
 ErrorController.prototype.notFound = function(httpResponse, parameters) {
-    this.staticFile.error(404, parameters.error + "("+parameters.pathname+")", httpResponse);
+    this.staticFile.error(404, parameters.error + " ("+parameters.pathname+")", httpResponse);
 };
     
 ErrorController.prototype.serverError = function(httpResponse, parameters) {
-    this.staticFile.error(500, parameters.error + "("+parameters.pathname+")", httpResponse);
+    this.staticFile.error(500, parameters.error + " ("+parameters.pathname+")", httpResponse);
 };
     
 

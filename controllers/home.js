@@ -1,15 +1,17 @@
 
 var HomeController = function() {
-    this.stuff = "My name is HomeController";
-    
+    this.viewEngine = require("../app/view.js").engine;
     this.controllerName = "home";
 };
 
 HomeController.prototype.index = function(httpResponse, urlQuery) {
-	// do stuff
-	httpResponse.writeHead(200, { "Content-Type": "text/html" });
-    httpResponse.write("<h1>Hello World</h1> this is the controller's internal stuff: " + this.stuff);
-    httpResponse.end();
+
+    this.viewEngine.render(this, "index", {"welcomeMsg": "Hello world"}, httpResponse);
 };
+
+HomeController.prototype.logs = function(httpResponse, urlQuery) {
+
+    this.viewEngine.render(this, "logs", {"logs": require("../lib/livelog").logger.logs.replace(/\n/g, "<br/>")}, httpResponse);
+}
 
 module.exports.controller = new HomeController();

@@ -1,6 +1,7 @@
-var conf = require("../config/conf.js");
+var conf = require("../config/conf.js"),
+    llog = require("../lib/livelog").logger;
 
-function route(handle, pathname, response, query) {
+function route(handle, pathname, response, query, handleError) {
 
     if(handle[pathname] instanceof Array) {
         var ctrl = handle[pathname][0];
@@ -9,15 +10,9 @@ function route(handle, pathname, response, query) {
         ctrl[action](response, query);
         
     } else {
-        
-        if(conf.app.debug) {
-            console.log("404 - " + pathname + " - " + JSON.stringify(query));
-        }
-        
-        var ctrl = handle["404"][0];
-        var action = handle["404"][1];
-        
-        ctrl[action](response, { path: pathname, error: "Handler not found", query: query});
+
+        handleError();
+        return;
     }
 }
 

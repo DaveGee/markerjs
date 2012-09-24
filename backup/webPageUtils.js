@@ -34,7 +34,7 @@ exports.error = function(nb, message, httpResponse) {
                     httpResponse.write(nb + " " + message);
                     httpResponse.end();
                 } else {
-                    httpResponse.writeHead(200, {"Content-type": "text/html"});
+                    httpResponse.writeHead(nb, {"Content-type": "text/html"});
                     httpResponse.end(content, "utf-8");
                 }
                     
