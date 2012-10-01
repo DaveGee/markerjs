@@ -4,7 +4,8 @@ var ViewEngineConf =  {
     tags: {
         render: "@Render",
         data: "@Data",
-        viewModel: "@ViewModel"
+        viewModel: "@ViewModel",
+        viewModelName: "@ViewModelName"
     }
 };
 
@@ -52,6 +53,8 @@ ViewEngine.prototype.render = function(ctrl, actionName, data, httpResponse) {
     var mapper = {};
     mapper[ViewEngineConf.tags.data] = function() { return JSON.stringify(data); };
     mapper[ViewEngineConf.tags.render] = function() { return fs.readFileSync(filepath, "utf-8"); };
+    mapper[ViewEngineConf.tags.viewModel] = function() { if(ctrl.viewModel) return "<script src='viewmodels/"+ctrl.viewModel.file+"'></script>"; else return ""; }
+    mapper[ViewEngineConf.tags.viewModelName] = function() { if(ctrl.viewModel) return ctrl.viewModel.name; else return ""; }
     
     this.doLayout(httpResponse, mapper);
 }
