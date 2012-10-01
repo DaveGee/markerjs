@@ -3,7 +3,8 @@ var fs = require("fs");
 var ViewEngineConf =  {
     tags: {
         render: "@Render",
-        data: "@Data"
+        data: "@Data",
+        viewModel: "@ViewModel"
     }
 };
 

@@ -6,6 +6,7 @@ var http = require("http"),
     static = require("../lib/node-static");
 
 var fileServer = new static.Server("./public", { cache: (3600 * !conf.app.debug) });
+var vmServer = new static.Server("./viewmodels", { cache: (3600 * !conf.app.debug) });
 
 function start(route, handle) {
     function onRequest(request, response) {
@@ -16,7 +17,7 @@ function start(route, handle) {
 
         if(pathname.match(/[0-9a-z_-]*\.(js|css)/gi)) {
 
-            fileServer.serve(request, response, function(err) {
+            vmServer.serve(request, response, function(err) {
                 if(err)
                     notFound(pathname, request, response);
             });
