@@ -42,13 +42,15 @@ var notFound = function(pathname, request, response) {
     fileServer.serveFile(pathname, 200, {}, request, response).addListener("error", function(err) {
 
         if(err) {
+            var errorServer = new static.Server("./views/errors", { cache: (3600 * !conf.app.debug) });
+
             if(conf.app.debug) {
                 llog.log(err);
-                llog.log(pathname + ": no static file, 404");
+                llog.log(pathname + ": no static file: 404");
             }
-            fileServer.serveFile("/views/errors/404.html", 404, {}, request, response).addListener("error", function(err) {
-                if(err) {
-                    if(conf.app.debug) llog.log(pathname + ": critical error 500 - " + JSON.stringify(err));
+            errorServer.serveFile("404.html", 404, {}, request, response).addListener("error", function(err2) {
+                if(err2) {
+                    if(conf.app.debug) llog.log(pathname + ": critical error 500 - " + JSON.stringify(err2));
                     require("../lib/webUtils").fivehundred(response);
                 }
             })

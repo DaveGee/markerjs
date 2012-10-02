@@ -23,7 +23,7 @@
 		(window.myBookmarklet = function() {
 			
             // show box to enter title and category
-            $("<style></style")
+            $("<style></style>")
                 .text(".testdiv { z-index: 100000; position: fixed; left: 0; top: 0; width: 100%; height: 100px; background: red; }")
                 .appendTo("body");
                 

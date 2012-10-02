@@ -8,6 +8,7 @@ exports.handles = {
     "/home/logs":   [home, "logs"],
 	"/mark":        [marker, "list"],
 	"/mark/add":    [marker, "addMark"],
+    "/mark/marker": [marker, "showMarker"],
 	"/test":        [test, "test"],
 	"/test/json":   [test, "testJson"],
 	"/test/view":   [test, "testView"],

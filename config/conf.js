@@ -1,6 +1,6 @@
 
 exports.web = {
-    port:   process.env.PORT,// || 10000,
+    port:   process.env.PORT || 10000,
     ip:     process.env.IP || "localhost"
 };
 
