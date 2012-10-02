@@ -1,1 +1,9 @@
-body { font-family: Sans-serif; font-size: 10pt }
+body { font-family: Sans-serif; font-size: 10pt; width: 800px; margin-left: -400px; left: 50%; position: absolute; }
+
+.body, header, footer { margin: 10px; color: white; bordeR: 1px solid #45C1FF; padding: 10px; color: #606060; }
+
+table { width: 100%; }
+td { padding: 10px; background: #45c1ff; color: #fff; }
+
+a, a:visited { line-height: 2em; padding: 10px; background: #45c1ff; color: white; text-decoration: none; }
+a:active, a:hover { color: #F5F5B8; }

@@ -15,7 +15,7 @@ function start(route, handle) {
 
 		if(conf.app.debug) llog.logRequest(request); //require("../lib/webRecord").recordVisit(request);
 
-        if(pathname.match(/[0-9a-z_-]*\.(js|css)/gi)) {
+        if(pathname.match(/[0-9a-z_-]*\.vm\.(js|css)/gi)) {
 
             vmServer.serve(request, response, function(err) {
                 if(err)
@@ -31,7 +31,7 @@ function start(route, handle) {
         }
     }
     
-    http.createServer(onRequest).listen(conf.web.port);
+    http.createServer(onRequest).listen(conf.web.port, conf.web.ip);
     console.log("Server started on port " + conf.web.port);
 }
 

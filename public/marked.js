@@ -1,0 +1,1 @@
+// test if can appendChild to body, if not redirect to page list

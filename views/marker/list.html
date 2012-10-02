@@ -1,15 +1,23 @@
+
+
 <div>
-    <h3><%=title %></h3>
+    <h3 data-bind="text: data.pageTitle"></h3>
 
-
-    <script>
-
-        $(document).ready(function() {
-
-            alert("ready");
-        });
-
-
-    </script>
+    <table>
+        <thead>
+            <th>Id</th>
+            <th>Text</th>
+            <th>Url</th>
+            <th>Date</th>
+        </thead>
+        <tbody data-bind="foreach: data.markers">
+            <tr>
+                <td data-bind="text: id" />
+                <td data-bind="text: text" />
+                <td><a data-bind="attr: { href: url }, text: text" target="_blank" /></td>
+                <td data-bind="text: date" />
+            </tr>
+        </tbody>
+    </table>
 
 </div>

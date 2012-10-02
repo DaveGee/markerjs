@@ -9,20 +9,24 @@
         
             var viewData = @Data;
 
-            function @ViewModelName() {
-                this.self = this;
-
-                @ViewModel
-            }
-
-            ko.applyBindings(new @ViewModelName());
-
         </script>
     
     </head>
     <body>
-        <h1>You are now in the world of the "Layout"!</h1>
+        <header>
+            <h1>MarkerJs application 0.1a</h1>
+        </header>
         
-        @Render
+        <div class="body">
+        
+            @Render
+            
+        </div>
+        
+        @ViewModelFile
+        
+        <footer>        
+            &copy; 2012
+        </footer>
     </body>
 </html>

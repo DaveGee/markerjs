@@ -4,8 +4,7 @@ var ViewEngineConf =  {
     tags: {
         render: "@Render",
         data: "@Data",
-        viewModel: "@ViewModel",
-        viewModelName: "@ViewModelName"
+        vm: "@ViewModelFile"
     }
 };
 
@@ -53,8 +52,16 @@ ViewEngine.prototype.render = function(ctrl, actionName, data, httpResponse) {
     var mapper = {};
     mapper[ViewEngineConf.tags.data] = function() { return JSON.stringify(data); };
     mapper[ViewEngineConf.tags.render] = function() { return fs.readFileSync(filepath, "utf-8"); };
-    mapper[ViewEngineConf.tags.viewModel] = function() { if(ctrl.viewModel) return "<script src='viewmodels/"+ctrl.viewModel.file+"'></script>"; else return ""; }
-    mapper[ViewEngineConf.tags.viewModelName] = function() { if(ctrl.viewModel) return ctrl.viewModel.name; else return ""; }
+    mapper[ViewEngineConf.tags.vm] = function() {
+        if(ctrl.viewModel)
+            return "<script src='/" + ctrl.viewModel + "'></script>";
+        else
+            return "";
+    };
+    
+    // ViewModel should be only on the client, data retrieved by ajax or else
+    //mapper[ViewEngineConf.tags.viewModel] = function() { if(ctrl.viewModel) return "<script src='viewmodels/"+ctrl.viewModel.file+"'></script>"; else return ""; }
+    //mapper[ViewEngineConf.tags.viewModelName] = function() { if(ctrl.viewModel) return ctrl.viewModel.name; else return ""; }
     
     this.doLayout(httpResponse, mapper);
 }
