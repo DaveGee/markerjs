@@ -1,7 +1,10 @@
-markerjs
+MarkerJs
 ========
 
-private bookmarker
+Private bookmarker
+MarkerJs is a private bookmarking system to allow easy x-browser compatibility without having to rely on a third-party provider (the solution is an easy-install node.js app)
+
+
 
 - Node.Js app structure
 - MVC pattern tests with node
