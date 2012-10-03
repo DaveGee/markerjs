@@ -19,8 +19,8 @@ TODO
 
 v0.1
 ----
-+ __log page view__
-* marker (view)
+1 __log page view__
+- marker (view)
 - marked list (view) (fromo db)
 - mark! action + save in db
 - category management (how?)
