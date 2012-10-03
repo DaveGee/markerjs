@@ -14,8 +14,8 @@ TestController.prototype.testJson = function(httpResponse, queryStr) {
     console.log("testing utils 200 json...");
    
     var envTest = {
-    	"VCAP_SERVICES": process.env.VCAP_SERVICES,
-	"MJS_NAME": process.env.MJS_NAME
+        "VCAP_SERVICES": process.env.VCAP_SERVICES,
+        "MJS_NAME": process.env.MJS_NAME
     };
  
     require("../lib/utils").twohundredJson(httpResponse, "");

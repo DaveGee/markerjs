@@ -3,7 +3,7 @@ var MarkerController = function() {
 
     this.controllerName = "marker";
     this.viewEngine = require("../app/view").engine;
-    this.viewModel = "marker.vm.js";
+    //this.viewModel = "marker.vm.js";
 
 	this.marks = [
         { id: 1, url: "http://www.google.com", text: "Google!", date: "2012-09-12" },

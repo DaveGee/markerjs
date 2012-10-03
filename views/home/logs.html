@@ -1,1 +1,20 @@
 <h2>Live logs</h2>
+
+<table data-bind="foreach: data.logs" class="logs">
+    <tr>
+        <td data-bind="text: time">
+        </td>
+        <td data-bind="text: msg">
+        </td>
+    </tr>
+</table>
+<script>
+
+    function LogsViewModel() {
+        this.self = this;
+        
+        self.data = viewData;
+    }
+    
+    ko.applyBindings(new LogsViewModel());
+</script>

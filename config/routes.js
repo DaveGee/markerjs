@@ -5,6 +5,7 @@ var test = require("../controllers/test.js").controller;
 
 exports.handles = {
 	"/":            [home, "index"],
+    "/home":        [home, "index"],
     "/home/logs":   [home, "logs"],
 	"/mark":        [marker, "list"],
 	"/mark/add":    [marker, "addMark"],

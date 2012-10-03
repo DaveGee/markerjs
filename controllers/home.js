@@ -11,7 +11,8 @@ HomeController.prototype.index = function(httpResponse, urlQuery) {
 
 HomeController.prototype.logs = function(httpResponse, urlQuery) {
 
-    this.viewEngine.render(this, "logs", {"logs": require("../lib/livelog").logger.logs.replace(/\n/g, "<br/>")}, httpResponse);
+    //this.viewEngine.render(this, "logs", {"logs": require("../lib/livelog").logger.logs.replace(/\n/g, "<br/>")}, httpResponse);
+    this.viewEngine.render(this, "logs", {"logs": require("../lib/livelog").logger.logObjects.reverse()}, httpResponse);
 }
 
 module.exports.controller = new HomeController();
