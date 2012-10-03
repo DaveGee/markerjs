@@ -19,7 +19,7 @@ TODO
 
 v0.1
 ----
-- _log page view_
+- __log page view__
 - marker (view)
 - marked list (view) (fromo db)
 - mark! action + save in db
