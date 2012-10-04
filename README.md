@@ -30,7 +30,7 @@ v0.2
 - delete! action
 - category management (how?)
 
-v0.1
+v0.3
 ----
 - bookmarks exports
 
